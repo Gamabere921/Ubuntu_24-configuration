@@ -23,7 +23,7 @@ sudo chmod +x ~/configuration/autopsy/install_application.sh
 
 sudo ~/configuration/autopsy/install_application.sh
 
-install_application.sh -z ~/configuration/autopsy-4.19.2.zip -i ~/autopsy -j /usr/lib/jvm/java-1.17.0-openjdk-amd64
+install_application.sh -z ~/configuration/autopsy-4.21.0.zip -i ~/autopsy -j /usr/lib/jvm/java-1.17.0-openjdk-amd64
 
 #Autopsy installed
 echo "Autopsy installed"
