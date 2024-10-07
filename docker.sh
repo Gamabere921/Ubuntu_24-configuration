@@ -19,9 +19,11 @@ sudo apt-get update
 sudo apt-get install docker-ce docker-ce-cli containerd.io docker-buildx-plugin docker-compose-plugin
 
 #post-install docer
+echo "try post instalation"
 sudo groupadd docker
-sudo usermod -aG docker $USER
-newgrp docker
+sudo usermod -aG docker $SUDO_USER
+echo "post installation"
+exec su - $SUDO_USER
 
 #comprobando instalacion de docker
 echo "checking docker installation"
