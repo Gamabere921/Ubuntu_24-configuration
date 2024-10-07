@@ -21,9 +21,15 @@ wget -P ~/configuration/autopsy/ https://raw.githubusercontent.com/sleuthkit/aut
 
 sudo chmod +x ~/configuration/autopsy/install_application.sh
 
-sudo ~/configuration/autopsy/install_application.sh
+sudo ~/configuration/autopsy/install_application.sh -z ~/configuration/autopsy/autopsy-4.21.0.zip -i ~/autopsy -j /usr/lib/jvm/java-1.17.0-openjdk-amd64
+sudo apt install libcanberra-gtk-module libcanberra-gtk3-module -y 
 
-install_application.sh -z ~/configuration/autopsy-4.21.0.zip -i ~/autopsy -j /usr/lib/jvm/java-1.17.0-openjdk-amd64
+sudo mkdir -p /opt/autopsy
+sudo cp -r ~/autopsy/autopsy-4.21.0 /opt/autopsy/
+echo 'symbolic code of autopsy' >> ~/.bashrc
+echo 'export PATH=$PATH:/opt/autopsy/autopsy-4.21.0/bin/' >> ~/.bashrc
+echo 'symbolic code of autopsy' >> $HOME/.bashrc
+echo 'export PATH=$PATH:/opt/autopsy/autopsy-4.21.0/bin/' >> $HOME/.bashrc
 
 #Autopsy installed
 echo "Autopsy installed"
