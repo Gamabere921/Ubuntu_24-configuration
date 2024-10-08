@@ -7,7 +7,7 @@ if [[ $EUID -ne 0 ]]; then
 fi
 
 # Dar permisos de ejecución a todos los scripts en la carpeta actual
-chmod +x autopsy.sh docker.sh keepass.sh maltego.sh nmap.sh obsidian.sh todos.sh uninstalling-libreoffice.sh vs-code.sh WPSoffice.sh
+chmod +x autopsy.sh docker.sh keepass.sh maltego.sh nmap.sh obsidian.sh todos.sh uninstalling-libreoffice.sh vs-code.sh WPSoffice.sh BalenaEtcher.sh
 
 # Imprimir el banner
 echo -e " ██████╗  █████╗ ███╗   ███╗██████╗  █████╗ ██████╗ ███████╗\n██╔════╝ ██╔══██╗████╗ ████║██╔══██╗██╔══██╗██╔══██╗██╔════╝\n██║  ███╗███████║██╔████╔██║██████╔╝███████║██████╔╝█████╗  \n██║   ██║██╔══██║██║╚██╔╝██║██╔══██╗██╔══██║██╔══██╗██╔══╝  \n╚██████╔╝██║  ██║██║ ╚═╝ ██║██████╔╝██║  ██║██║  ██║███████╗\n ╚═════╝ ╚═╝  ╚═╝╚═╝     ╚═╝╚═════╝ ╚═╝  ╚═╝╚═╝  ╚═╝╚══════╝\n                                                            \n████████╗ ██████╗  ██████╗ ██╗     ███████╗                 \n╚══██╔══╝██╔═══██╗██╔═══██╗██║     ██╔════╝                 \n   ██║   ██║   ██║██║   ██║██║     ███████╗                 \n   ██║   ██║   ██║██║   ██║██║     ╚════██║                 \n   ██║   ╚██████╔╝╚██████╔╝███████╗███████║                 \n   ╚═╝    ╚═════╝  ╚═════╝ ╚══════╝╚══════╝                 \n                                                            "
@@ -26,12 +26,13 @@ mostrar_menu() {
     echo "8) Ejecutar vs-code.sh"
     echo "9) Ejecutar WPSoffice.sh"
     echo "10) Ejecutar todos.sh"
-    echo "11) Salir"
+    echo "11) Ejecutar BalenaEtcher.sh"  # Nueva opción añadida
+    echo "12) Salir"
 }
 
 # Leer la opción del usuario
 leer_opcion() {
-    read -p "Elige una opción [1-11]: " opcion
+    read -p "Elige una opción [1-12]: " opcion
     case $opcion in
         1)
             echo "Ejecutando autopsy.sh..."
@@ -74,6 +75,10 @@ leer_opcion() {
             ./todos.sh
             ;;
         11)
+            echo "Ejecutando BalenaEtcher.sh..."  # Nueva opción ejecutada
+            ./BalenaEtcher.sh
+            ;;
+        12)
             echo "Saliendo..."
             exit 0
             ;;
