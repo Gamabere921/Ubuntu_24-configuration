@@ -4,7 +4,7 @@
 sudo apt update
 
 # Instalar los paquetes
-sudo apt install -y ufw neofetch net-tools htop snapd timeshift
+sudo apt install -y ufw neofetch net-tools htop snapd timeshift tree curl
 
 # Verificar la instalación
 if command -v ufw &> /dev/null; then
@@ -41,6 +41,18 @@ if command -v timeshift &> /dev/null; then
     echo "timeshift instalado correctamente."
 else
     echo "Error al instalar timeshift."
+fi
+
+if command -v tree &> /dev/null; then
+    echo "tree instalado correctamente."
+else
+    echo "Error al instalar tree."
+fi
+
+if command -v curl &> /dev/null; then
+    echo "curl instalado correctamente."
+else
+    echo "Error al instalar curl."
 fi
 
 # Agregar neofetch al .bashrc
