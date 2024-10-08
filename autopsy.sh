@@ -26,8 +26,8 @@ sudo ~/configuration/autopsy/install_application.sh -z ~/configuration/autopsy/a
 
 
 sudo mkdir -p /opt/autopsy
-sudo cp -r ~/autopsy/autopsy-4.21.0 /opt/autopsy/
-sudo ln -s /opt/autopsy/bin/autopsy /usr/local/bin/autopsy
+sudo cp -r ~/autopsy/autopsy-4.21.0 /opt/
+sudo ln -s /opt/autopsy-4.21.0/bin/autopsy /usr/local/bin/autopsy
 
 #Autopsy installed
 echo "Autopsy installed"
