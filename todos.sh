@@ -62,11 +62,17 @@ echo ""
 echo "====================="
 echo "Installing Obsidian"
 echo "====================="
+# Creating forder to installation of Obsidian
+echo "Creating forder to installation of Obsidian"
 mkdir -p ~/configuration/obsidian/
 wget -P ~/configuration/obsidian/ https://github.com/obsidianmd/obsidian-releases/releases/download/v1.6.7/Obsidian-1.6.7.AppImage
-chmod +x ~/configuration/obsidian/Obsidian-1.6.7.AppImage
-sudo -u $SUDO_USER ~/configuration/obsidian/Obsidian-1.6.7.AppImage
+chmdo +x ~/configuration/obsidian/Obsidian-1.6.7.AppImage
+sudo chown $SUDO_USER:$SUDO_USER ~/configuration/obsidian/Obsidian-1.6.7.AppImage
+sudo cp ~/configuration/obsidian/Obsidian-1.6.7.AppImage /home/$SUDO_USER/Desktop
+#sudo -u $SUDO_USER ~/configuration/obsidian/Obsidian-1.6.7.AppImage
+
 echo "Obsidian installed"
+
 echo ""
 
 # Installing Autopsy
@@ -75,39 +81,36 @@ echo "Installing Autopsy"
 echo "====================="
 echo "Installing Autopsy, this may take a few minutes" 
 # Creating forder to installation of Autopsy
+echo "Installing Autopsy, this may take a few minutes" 
+
 mkdir -p ~/configuration/autopsy/
 
 wget -P ~/configuration/autopsy/ https://github.com/sleuthkit/autopsy/releases/download/autopsy-4.21.0/autopsy-4.21.0.zip
 
 sudo apt remove -y sleuthkit
 sudo apt remove -y libtsk19
-
+sudo apt --fix-broken install -y
 wget -P ~/configuration/autopsy/ https://github.com/sleuthkit/sleuthkit/releases/download/sleuthkit-4.12.1/sleuthkit-java_4.12.1-1_amd64.deb
 sudo dpkg -i ~/configuration/autopsy/sleuthkit-java_4.12.1-1_amd64.deb
-
+sudo apt --fix-broken install -y 
 wget -P ~/configuration/autopsy/ https://raw.githubusercontent.com/sleuthkit/autopsy/refs/heads/develop/linux_macos_install_scripts/install_prereqs_ubuntu.sh
 
 sudo chmod +x ~/configuration/autopsy/install_prereqs_ubuntu.sh
 
 sudo ~/configuration/autopsy/install_prereqs_ubuntu.sh
-
+sudo apt --fix-broken install -y 
+sudo apt install libcanberra-gtk-module libcanberra-gtk3-module -y 
 wget -P ~/configuration/autopsy/ https://raw.githubusercontent.com/sleuthkit/autopsy/refs/heads/develop/linux_macos_install_scripts/install_application.sh
 
 sudo chmod +x ~/configuration/autopsy/install_application.sh
 
 sudo ~/configuration/autopsy/install_application.sh -z ~/configuration/autopsy/autopsy-4.21.0.zip -i ~/autopsy -j /usr/lib/jvm/java-1.17.0-openjdk-amd64
-sudo apt install libcanberra-gtk-module libcanberra-gtk3-module -y 
 
 sudo mkdir -p /opt/autopsy
 sudo cp -r ~/autopsy/autopsy-4.21.0 /opt/autopsy/
-echo 'symbolic code of autopsy' >> ~/.bashrc
-echo 'export PATH=$PATH:/opt/autopsy/autopsy-4.21.0/bin/' >> ~/.bashrc
-echo 'symbolic code of autopsy' >> $HOME/.bashrc
-echo 'export PATH=$PATH:/opt/autopsy/autopsy-4.21.0/bin/' >> $HOME/.bashrc
-
+sudo ln -s /opt/autopsy/bin/autopsy /usr/local/bin/autopsy
 #Autopsy installed
 echo "Autopsy installed"
-
 
 # Installing Docker and Docker Compose
 echo "====================="
