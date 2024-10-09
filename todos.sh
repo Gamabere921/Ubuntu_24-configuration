@@ -62,51 +62,52 @@ echo ""
 echo "====================="
 echo "Installing BalenaEtcher"
 echo "====================="
-
+echo "Installing BalenaEtcher"
 
 # Creating folder for installation of BalenaEtcher
-# echo "Creating folder for installation of BalenaEtcher"
+echo "Creating folder for installation of BalenaEtcher"
 mkdir -p ~/configuration/balenaetcher
 
 # Downloading BalenaEtcher .deb package
-# echo "Downloading BalenaEtcher..."
-wget -P ~/configuration/balenaetcher/ https://github.com/balena-io/etcher/releases/download/v1.19.22/balena-etcher_1.19.22_amd64.deb
+echo "Downloading BalenaEtcher..."
+wget -P ~/configuration/balenaetcher/ https://github.com/balena-io/etcher/releases/download/v1.7.9/balenaEtcher-1.7.9-ia32.AppImage
 
 # Installing BalenaEtcher
-# echo "Installing BalenaEtcher..."
-sudo dpkg -i ~/configuration/balenaetcher/balena-etcher_1.19.22_amd64.deb
-
+mkdir -p /home/$SUDO_USER/apps
+sudo cp ~/configuration/balenaetcher/balenaEtcher-1.7.9-ia32.AppImage /home/$SUDO_USER/apps/
 # Fixing missing dependencies, if any
-sudo apt-get install -f
 
 echo "BalenaEtcher installed"
+
 echo ""
 
 # Installing Obsidian
 echo "====================="
 echo "Installing Obsidian"
 echo "====================="
+# 
+echo "Installing Obsidian"
 # Creating forder to installation of Obsidian
 echo "Creating forder to installation of Obsidian"
 mkdir -p ~/configuration/obsidian/
 wget -P ~/configuration/obsidian/ https://github.com/obsidianmd/obsidian-releases/releases/download/v1.6.7/Obsidian-1.6.7.AppImage
 chmod +x ~/configuration/obsidian/Obsidian-1.6.7.AppImage
 sudo chown $SUDO_USER:$SUDO_USER ~/configuration/obsidian/Obsidian-1.6.7.AppImage
-sudo cp ~/configuration/obsidian/Obsidian-1.6.7.AppImage /home/$SUDO_USER/Desktop
+mkdir -p /home/$SUDO_USER/apps
+sudo cp ~/configuration/obsidian/Obsidian-1.6.7.AppImage /home/$SUDO_USER/apps/
 #sudo -u $SUDO_USER ~/configuration/obsidian/Obsidian-1.6.7.AppImage
 
 echo "Obsidian installed"
+
 
 echo ""
 
 # Installing Autopsy
 echo "====================="
 echo "Installing Autopsy"
-echo "====================="
+echo "=====================" 
 echo "Installing Autopsy, this may take a few minutes" 
 # Creating forder to installation of Autopsy
-echo "Installing Autopsy, this may take a few minutes" 
-
 mkdir -p ~/configuration/autopsy/
 
 wget -P ~/configuration/autopsy/ https://github.com/sleuthkit/autopsy/releases/download/autopsy-4.21.0/autopsy-4.21.0.zip
@@ -130,9 +131,12 @@ sudo chmod +x ~/configuration/autopsy/install_application.sh
 
 sudo ~/configuration/autopsy/install_application.sh -z ~/configuration/autopsy/autopsy-4.21.0.zip -i ~/autopsy -j /usr/lib/jvm/java-1.17.0-openjdk-amd64
 
-sudo mkdir -p /opt/autopsy
-sudo cp -r ~/autopsy/autopsy-4.21.0 /opt/autopsy/
-sudo ln -s /opt/autopsy/bin/autopsy /usr/local/bin/autopsy
+#Creando enlace simbolico y app en desktop
+sudo cp -r ~/autopsy/autopsy-4.21.0 /opt/
+sudo ln -s /opt/autopsy-4.21.0/bin/autopsy /usr/local/bin/autopsy
+# wget -P ~/configuration/autopsy/ https://raw.githubusercontent.com/Gamabere921/Ubuntu_24-configuration/refs/heads/main/autopsy.desktop
+# sudo cp ~/configuration/autopsy/autopsy.desktop /home/$SUDO_USER/.local/share/applications/
+# sudo cp ~/configuration/autopsy/autopsy.desktop ~/.local/share/applications/
 #Autopsy installed
 echo "Autopsy installed"
 

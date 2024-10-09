@@ -24,11 +24,12 @@ sudo chmod +x ~/configuration/autopsy/install_application.sh
 
 sudo ~/configuration/autopsy/install_application.sh -z ~/configuration/autopsy/autopsy-4.21.0.zip -i ~/autopsy -j /usr/lib/jvm/java-1.17.0-openjdk-amd64
 
-
-sudo mkdir -p /opt/autopsy
+#Creando enlace simbolico y app en desktop
 sudo cp -r ~/autopsy/autopsy-4.21.0 /opt/
 sudo ln -s /opt/autopsy-4.21.0/bin/autopsy /usr/local/bin/autopsy
-
+# wget -P ~/configuration/autopsy/ https://raw.githubusercontent.com/Gamabere921/Ubuntu_24-configuration/refs/heads/main/autopsy.desktop
+# sudo cp ~/configuration/autopsy/autopsy.desktop /home/$SUDO_USER/.local/share/applications/
+# sudo cp ~/configuration/autopsy/autopsy.desktop ~/.local/share/applications/
 #Autopsy installed
 echo "Autopsy installed"
 

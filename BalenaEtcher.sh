@@ -7,13 +7,11 @@ mkdir -p ~/configuration/balenaetcher
 
 # Downloading BalenaEtcher .deb package
 echo "Downloading BalenaEtcher..."
-wget -P ~/configuration/balenaetcher/ https://github.com/balena-io/etcher/releases/download/v1.19.22/balena-etcher_1.19.22_amd64.deb
+wget -P ~/configuration/balenaetcher/ https://github.com/balena-io/etcher/releases/download/v1.7.9/balenaEtcher-1.7.9-ia32.AppImage
 
 # Installing BalenaEtcher
-echo "Installing BalenaEtcher..."
-sudo dpkg -i ~/configuration/balenaetcher/balena-etcher_1.19.22_amd64.deb
-
+mkdir -p /home/$SUDO_USER/apps
+sudo cp ~/configuration/balenaetcher/balenaEtcher-1.7.9-ia32.AppImage /home/$SUDO_USER/apps/
 # Fixing missing dependencies, if any
-sudo apt-get install -f
 
 echo "BalenaEtcher installed"
