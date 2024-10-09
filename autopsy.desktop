@@ -1,0 +1,8 @@
+[Desktop Entry]
+Name=Autopsy
+Comment=Digital forensics tool for analyzing and recovering data from hard drives
+Exec=/opt/autopsy-4.21.0/bin/autopsy
+Icon=/opt/autopsy-4.21.0/icon.ico
+Terminal=true
+Type=Application
+Categories=Utility;Forensics;Security;
