@@ -42,13 +42,13 @@ Pin: origin packages.mozilla.org
 Pin-Priority: 1000
 ' | tee /etc/apt/preferences.d/mozilla
 
-sudo apt install --fix-broken install
+sudo apt install --fix-broken
 
 # Actualizar la lista de paquetes e instalar Firefox
 echo "Actualizando la lista de paquetes e instalando Firefox..."
 sudo apt update 
-sudo apt install --fix-broken install
-sudo install -y firefox
+sudo apt install --fix-broken 
+sudo apt install firefox -y
 
 # Finalización
 if [ $? -eq 0 ]; then
