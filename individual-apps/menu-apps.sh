@@ -18,8 +18,9 @@ mostrar_menu() {
     echo "Selecciona una opción:"
     echo "1) Ejecutar docker.sh"
     echo "2) Ejecutar firefox.sh"
-    echo "3) Ejecutar packages.sh"
-    echo "4) Salir"
+    echo "3) Ejecutar firefox.sh"
+    echo "4) Ejecutar packages.sh"
+    echo "5) Salir"
 }
 
 # Leer la opción del usuario
@@ -35,10 +36,14 @@ leer_opcion() {
             ./firefox.sh
             ;;
         3)
+            echo "Ejecutando firefox.sh..."
+            ./virtualbox.sh
+            ;;
+        4)
             echo "Ejecutando packages.sh..."
             ./packages.sh
             ;;
-        4)
+        5)
             echo "Saliendo..."
             exit 0
             ;;
